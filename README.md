@@ -1,8 +1,34 @@
-# React + Vite
+# FullStackOpen.com exercices Part 6
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Exercise 6.20
+Implement retrieving anecdotes from the server using React Query.
 
-Currently, two official plugins are available:
+The application should work in such a way that if there are problems communicating with the server, only an error page will be displayed:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img src="https://fullstackopen.com/static/457e9cc4c44344cfb7b546caa44f9ef2/5a190/65new.png">
+
+You can find [here](https://tanstack.com/query/latest/docs/react/guides/queries) info how to detect the possible errors.
+
+You can simulate a problem with the server by e.g. turning off the JSON Server. Please note that in a problem situation, the query is first in the state isLoading for a while, because if a request fails, React Query tries the request a few times before it states that the request is not successful. You can optionally specify that no retries are made:
+
+```jsx
+const result = useQuery(
+  {
+    queryKey: ['anecdotes'],
+    queryFn: getAnecdotes,
+    retry: false
+  }
+)
+```
+
+or that the request is retried e.g. only once:
+```jsx
+const result = useQuery(
+  {
+    queryKey: ['anecdotes'],
+    queryFn: getAnecdotes,
+    retry: 1
+  }
+)
+```
+
