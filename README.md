@@ -46,3 +46,10 @@ Implement the application's notification state management using the useReducer h
 ![Anecdote app](https://fullstackopen.com/static/624eb96335944fbc330519085b862c61/5a190/66new.png)
 
 The notification is displayed for five seconds.
+
+# Exercise 6.24.
+As stated in exercise 6.21, the server requires that the content of the anecdote to be added is at least 5 characters long. Now implement error handling for the insertion. In practice, it is sufficient to display a notification to the user in case of a failed POST request:
+
+![Anecdote app](https://fullstackopen.com/static/6421e83d12bd88962ba24fde52f3a719/5a190/67new.png)
+
+The error condition should be handled in the callback function registered for it, see [here](https://tanstack.com/query/latest/docs/react/reference/useMutation) how to register a function.

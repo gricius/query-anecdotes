@@ -10,6 +10,9 @@ const AnecdoteForm = () => {
     onSuccess: (newAnecdote) => {
       queryClient.invalidateQueries('anecdotes')
       showNotification(`you created '${newAnecdote.content}'`, 5)
+    },
+    onError: (error) => {
+      showNotification(error.response.data.error, 5)
     }
   })
     
