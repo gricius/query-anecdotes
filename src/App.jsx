@@ -4,9 +4,11 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getAnecdotes } from './requests'
 import axios from 'axios'
 import { updateAnecdote } from './requests'
+import { useNotification } from './components/NotificationContext'
 
 const App = () => {
   const queryClient = useQueryClient()
+  const { showNotification } = useNotification()
 
   const handleVote = async (anecdote) => {
     const updatedAnecdote = { ...anecdote, votes: anecdote.votes + 1 }
@@ -17,6 +19,7 @@ const App = () => {
       )
       return newData
     })
+    showNotification(`you voted '${anecdote.content}'`, 5)
   }
 
   const result = useQuery({

@@ -37,3 +37,12 @@ Implement adding new anecdotes to the server using React Query. The application 
 
 # Exercise 6.22
 Implement voting for anecdotes using again the React Query. The application should automatically render the increased number of votes for the voted anecdote.
+
+# Exercise 6.23.
+The application has a Notification component for displaying notifications to the user.
+
+Implement the application's notification state management using the useReducer hook and context. The notification should tell the user when a new anecdote is created or an anecdote is voted on:
+
+![Anecdote app](https://fullstackopen.com/static/624eb96335944fbc330519085b862c61/5a190/66new.png)
+
+The notification is displayed for five seconds.
